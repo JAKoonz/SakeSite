@@ -1,0 +1,262 @@
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin: 0px;
+	padding: 0px
+}
+
+/* Global Styles */
+input[type=text], input[type=date], input[type=number], textarea, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+label {
+  color: #9a929e;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px 20px;
+}
+
+input[type=radio]:checked + label {
+  background: #025A7B;
+}
+
+label + input[type=radio] + label {
+  border-left: solid 3px #675f6b;
+}
+
+.radio-group {
+  border: solid 3px #025A7B;
+  display: inline-block;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+input[type=submit], input[type=button] {
+    width: 100%;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	font-family: "Arial", Verdana, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+input[type=submit] {
+  background-color: #025A7B;
+}
+
+input[type=button] {
+  background-color: #4E8A9F;
+}
+
+input[type=submit]:hover {
+    background-color: #014964;
+}
+
+input[type=button]:hover {
+    background-color: #427587;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #D7EFF8;
+}
+
+body {
+	color: #025A7B;
+  height: 100vh;
+	font-family: "Arial", Verdana, sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+	overflow:scroll; /* JAK - for menu */
+  transition: background-color .5s; /* JAK - for menu */
+}
+
+.header {
+	color: #025A7B;
+	font-family: "Arial", Verdana, sans-serif;
+	text-align: center;
+	height: 40px;
+}
+
+.footer {
+	text-align: center;
+	font-size: .75em;
+	font-style: italic;
+}
+.container {
+	/*position: relative;*/
+  height: 100%;
+	padding:10px;
+	margin:auto;
+}
+
+.main {
+  height: calc(100% - 60px);
+}
+
+.content {
+  height: 100%;
+}
+
+.menu {
+	/*position: absolute;*/
+    top: 0px;
+    right: 0px;
+	float: right;
+  cursor:pointer;
+}
+
+.collapsed, .expanded {
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;	
+}
+
+.menulist {
+	text-align: right;
+	list-style: none;
+}
+
+.menuitems {
+    text-decoration: none;
+    list-style:none; 
+    font-family: "Arial", Verdana, sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    display: inline-block;
+    position:relative;	
+    text-align:right;
+    visibility: hidden;
+    color: #025A7B;
+    opacity:0.0;
+}
+
+.menuitems:after {
+  content:'';
+  display:block;
+  width: 0;
+  height: 1px;
+  background: #025A7B;
+  transition: width .2s;
+}
+
+.menuitems:hover::after {
+    width:100%;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #025A7B;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+
+/* Menu Bars */
+.expanded .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+.expanded .bar2 {
+    opacity: 0;
+}
+
+.expanded .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+
+
+
+
+table{
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tbl-header{
+  border: 1px solid #025A7B;
+  background-color: #C9E4EE;
+ }
+.tbl-content{
+  height: calc(100% - 550px);
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid #025A7B;
+  background-color: #BBD5DF;
+  display:block;
+}
+
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  border-bottom: solid 1px #025A7B;
+}
+
+
+    /*  
+     * Rating styles
+     */
+.rating {
+    float:left;
+    width:300px;
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span label {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:30px;
+    margin-right:2px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    background:#F90;
+    color:#FFF;
+}
+
+

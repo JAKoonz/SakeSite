@@ -1,0 +1,89 @@
+DB: SakeDiary
+
+	CREATE DATABASE SakeDiary;
+
+
+Table - Prefecture
+Properties:
+	Name - varchar - 47 total
+	region - varchar - constrained to 8 values
+populate with: https://en.wikipedia.org/wiki/Prefectures_of_Japan#Lists_of_prefectures
+
+	USE SakeDiary;
+	CREATE TABLE Prefecture (
+	  Name varchar(255) NOT NULL,
+	  Region varchar(255),
+	  CONSTRAINT chk_Region CHECK (style IN
+('Hokkaido','Tohoku','Kanto','Chubu','Kansai','Chugoku','Shikoku','Kyushu'))
+	  PRIMARY KEY (Name)
+	);
+
+
+
+
+Table: 	Sake
+Properties: 
+	Date - %Date
+	Venue - Varchar(255)
+	Name - Varchar(255)
+	Brewery - Varchar(255)
+	Prefecture - lookup to Prefecture table
+	Other location - Varchar(255)
+	Alcohol % - numeric (positive)
+	SMV - int (-15 to 15)
+	Acidity - float 1-2
+	Yeast - int 1-1001
+	Rice - constrained to 9 types: http://www.esake.com/Knowledge/Ingredients/Rice/rice.html
+	Rice Milling % - numeric (positive)
+	Temperature - lookup to Cold/Room Temp/Warm
+	Classification - Constrained to 7 values 
+	Served in - Constrained to 10 values
+	Style - Constrained to 11 values
+	rating - numeric 1-5
+	Notes - 
+	
+	USE SakeDiary;
+	CREATE TABLE product (
+	  sakeID int NOT NULL AUTO_INCREMENT,
+	  prefectureID_fk int,
+	  date Date,
+	  venue varchar(255),
+	  name varchar(255),
+  	  brewery varchar(255),
+	  otherLocation varchar(255),
+	  alcohol float,
+	  riceMilling float,
+	  temp varchar(255),
+	  CONSTRAINT chk_temp CHECK (classification IN ('Cold', 'Room Temperature', 'Warm')),
+	  classification varchar(255),
+	  CONSTRAINT chk_classification CHECK (classification IN ('Junmai', 'Junmai Ginjo', 'Junmai Daiginjo', 'Futsushu', 'Honjozo', 'Ginjo', 'Daiginjo')),
+	  servedIn varchar(255),
+	  CONSTRAINT chk_servedIn CHECK (servedIn IN ('Masu','Tulip','Footed','Guinomi','Sakazuki','Wine','Flute','Sherry','Ochoko/Kikichoko','Other')),
+	  style varchar(255),
+	  CONSTRAINT chk_style CHECK (style IN ('Taru','Kimoto','Sparkling','Muroka','Nama','Genshu','Yamahai','Nigori','Koshu','Shizuku','Tokubetsu')),
+	  rating int,
+	  smv decimal(3,1),
+	  acidity decimal(2,1),
+	  yeast decimal(4),
+	  rice varchar(255),
+	  CONSTRAINT chk_rice CHECK (style IN ('Yamada Nishiki','Omachi','Miyama Nishiki','Gohyakumangoku','Oseto','Hatta Nishiki','Tamazakae','Kame no O',' Dewa San San')),
+	  notes text,
+	  PRIMARY KEY (sakeID)
+	);
+
+TUTORIALS:
+HTML/CSS: https://learn.shayhowe.com/html-css/
+PHP: https://www.codecademy.com/tracks/php
+SQL: https://www.w3schools.com/sql/default.asp
+
+
+CHECKLIST
+
+pics of vessels (draw and upload)
+populate region when prefecture is selected - i think this would be done by having all region data hidden on the page on load
+view.php:
+- get fields to retain values entered (not sure why %_POST is not working) 
+- have reset button reset the fields (What is type=reset?)
+- give options for ordering by certain columns
+
+
