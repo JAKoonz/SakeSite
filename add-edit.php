@@ -16,7 +16,7 @@
 	if (!$result) { 	
 			$error = 'Error retrieving data for this entry: ' . mysqli_error($link);	
 			echo $error; 	
-	exit();
+		exit();
 	}
     
     //Name the variables and save them to use later
@@ -63,7 +63,7 @@
 	Venue: <input id="venue" type="text" name="venue" value="<?php echo $venue ?>"/>	
 	
 	Prefecture:
-		<select id="prefecture" name="prefecture">
+		<select id="prefecture" name="prefecture" onchange="populateRegion(this.value)">
 			<?php
 				//Connect to the DB
 				include 'db.inc.php';
@@ -76,24 +76,17 @@
 					echo $error; 
 					exit();				
 				}
-				$selectedRegion="";
 				echo "<option value=null> -- </option>";
 				while($recording=mysqli_fetch_array($result)){
 					$prefecture_name=htmlspecialchars($recording['name'], ENT_QUOTES, 'UTF-8');
-					$prefecture_region=htmlspecialchars($recording['region'], ENT_QUOTES, 'UTF-8');
 					echo "<option value=$prefecture_name ";
 					if ($prefecture==$prefecture_name) {
 						echo "SELECTED ";
-						$selectedRegion=$prefecture_region;
 					}
 					echo ">" . " ". $prefecture_name . "</option>";
 				}
-				if ($selectedRegion!="") {
-					// JAK TODO: how can i populate the region field?
-				}
 			?>
 		</select>
-
 	Region: <input id="region" type="text" name="region" readonly value="<?php echo $region ?>"/>
 	Other Location:<input id="location" type="text" name="location" value="<?php echo $location ?>"/>
 	Brewery: <input id="brewery" type="text" name="brewery" value="<?php echo $brewery ?>"/>
@@ -216,6 +209,5 @@
 ?>
 
 <?php
-    include 'sidebar.php';
 	include 'footer.php';
 ?>

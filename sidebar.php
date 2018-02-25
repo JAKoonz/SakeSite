@@ -1,6 +1,6 @@
 						</div><!-- .content -->
 						<!--
-<!--							<h3>Navigation</h3>
+							<h3>Navigation</h3>
 							<ul>
 								<li><a href="index.php">Home</a></li>
 								<li><a href="view.php">View Entries</a></li>

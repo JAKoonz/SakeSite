@@ -75,15 +75,26 @@ TUTORIALS:
 HTML/CSS: https://learn.shayhowe.com/html-css/
 PHP: https://www.codecademy.com/tracks/php
 SQL: https://www.w3schools.com/sql/default.asp
+PHP/MySQL/AJAX/XML: https://www.w3schools.com/php/php_ajax_database.asp
+Beginner's guide to AJAX with PHP: http://blog.teamtreehouse.com/beginners-guide-to-ajax-development-with-php
+
+HELPFUL SITES:
+Searchable Data Table example: https://codepen.io/setilikim/pen/RNXVoE?page=2
+Hamburger Menu: https://codepen.io/trobfrank/pen/YqJRde (even though I ended up not using much of this code and implementing it differently)
+
+GITHUB
+https://github.com/JAKoonz/SakeSite
 
 
 CHECKLIST
 
 pics of vessels (draw and upload)
-populate region when prefecture is selected - i think this would be done by having all region data hidden on the page on load
-view.php:
-- get fields to retain values entered (not sure why %_POST is not working) 
-- have reset button reset the fields (What is type=reset?)
-- give options for ordering by certain columns
 
+view.php:
+- give options for ordering by certain columns (start with style, then do prefecture)
+--- idea: two white up/down arrows next to column name. clicking one reloads and colors it blue. See https://css-tricks.com/snippets/css/css-triangle/. 
+
+i think the collapsed class is not used
+remove index.php and sidebar.php?
+host on the web so i can access it through my phone?
 

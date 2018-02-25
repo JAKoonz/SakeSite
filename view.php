@@ -2,25 +2,30 @@
 	include 'header.php';
 ?>
 
-<form action="#" method="get">
-  <div>
-  	<input id="name" type="text" name="name" value="<?php echo $_GET['name'];?>" placeholder="Sake Name" /></br>
-  	<input id="from" type="text" name="from" value="<?php echo $_GET['from'];?>" placeholder="From"  /></br>
-  	<input id="venue" type="text" name="venue" value="<?php echo $_GET['venue'];?>" placeholder="Had at" /></br>
-  	<input id="rating" type="text" name="rating" value="<?php echo $_GET['rating'];?>" placeholder="Rating" /></br>
-  	<input id="style" type="text" name="style" value="<?php echo $_GET['style'];?>" placeholder="Style" /></br>
-  	<input id="classification" type="text" name="classification" value="<?php echo $_GET['classification'];?>" placeholder="Classification" /></br>
-  </div>
-  
-  <div>
-    <input type="submit" value="Search">
-  </div>
-  
-  <div>
-    <input type="button" value="Clear Fields" onclick="clearForm(this.form);"> <!-- JAK TODO: get fields to retain values entered (not sure why %_POST is not working) and then have this button reset the fields (What is type=reset?) -->
-  </div>
-  
-</form>
+<button class="accordion" onclick="toggleAccordion(this);">Search Criteria</button>
+<div class="panel">
+  <form action="#" method="get">
+	  <div>
+	  	<input id="name" type="text" name="name" value="<?php echo $_GET['name'];?>" placeholder="Sake Name" /></br>
+	  	<input id="from" type="text" name="from" value="<?php echo $_GET['from'];?>" placeholder="From"  /></br>
+	  	<input id="venue" type="text" name="venue" value="<?php echo $_GET['venue'];?>" placeholder="Had at" /></br>
+	  	<input id="rating" type="text" name="rating" value="<?php echo $_GET['rating'];?>" placeholder="Rating" /></br>
+	  	<input id="style" type="text" name="style" value="<?php echo $_GET['style'];?>" placeholder="Style" /></br>
+	  	<input id="classification" type="text" name="classification" value="<?php echo $_GET['classification'];?>" placeholder="Classification" /></br>
+	  </div>
+	  
+	  <div>
+	    <input type="submit" value="Search">
+	  </div>
+	  
+	  <div>
+	    <input type="button" value="Clear Fields" onclick="clearForm(this.form);">
+	  </div>
+	  
+	</form>
+</div>
+
+
 
 <?php
     //Connect to DB
@@ -87,7 +92,7 @@
     echo '<div class="tbl-header">
 			<table>
 				<thead>
-				    <tr><th>Date</th><th>Name</th><th>Classification</th><th>Style</th><th>Prefecture</th><th>Region</th><th>Rating</th><th>Edit</th><th>Delete</th></tr>
+				    <tr><th>Date</th><th>Name</th><th>Classification</th></th><th>Style</th><th>Prefecture</th><th>Region</th><th>Rating</th><th>Edit</th><th>Delete</th></tr>
 				</thead>
 			</table>
 		</div>
@@ -129,6 +134,5 @@
     
 ?>
 <?php
-    include 'sidebar.php';
     include 'footer.php';  
 ?>

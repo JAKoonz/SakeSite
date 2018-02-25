@@ -19,8 +19,7 @@ error_reporting(-1);
 						<div class="bar2"></div>
 						<div class="bar3"></div>
 					</div></h1>
-					<ul class="menulist" id="menulist">
-						<li><a class="menuitems" href="index.php"><strong>Home</strong></a></li>		
+					<ul class="menulist" id="menulist">		
 						<li><a class="menuitems" href="view.php"><strong>View Entries</strong></a></li>				
 						<li><a class="menuitems" href="add-edit.php"><strong>Add a New Entry</strong></a></li>
 						
@@ -31,7 +30,7 @@ error_reporting(-1);
 						<li><a class="menuitems" href="http://www.sake-talk.com/" target="_blank"><i>Sake Talk</i></a></li>
 						<li><a class="menuitems" href="https://www.urbansake.com/notebook/" target="_blank"><i>Inspiration: The Urban Sake Notebook</i></a></li>
 					</ul>
-					<div id="main"></div>
+					<!-- <div id="main"></div> -->
 				</div><!-- .header -->
 				<div class="main">
 						<div class="content">

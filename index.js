@@ -1,6 +1,7 @@
 
 function Init() {
     
+    //JAK - is this necessary?
     var hiddenRating=document.getElementById("rating");
     if (hiddenRating) {
         ratingValue=hiddenRating.value;
@@ -9,11 +10,51 @@ function Init() {
     }
     
 }
-/*
+
+
+function populateRegion(prefectureName) {
+    var region = document.getElementById("region");
+    if (!region) {
+        return;
+    }
+    if (prefectureName == "") {
+        region.value = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                region.value = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getregion.php?q="+prefectureName,true);
+        xmlhttp.send();
+    }
+
+}
+
 $( function() {
     $( "#datepicker" ).datepicker();
   } );
-*/
+
+
+function toggleAccordion(x) {
+    x.classList.toggle("open");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = x.nextElementSibling;
+    if (panel.style.height){
+      panel.style.height = null;
+    } else {
+      panel.style.height = panel.scrollHeight + "px";
+    } 
+}
 
 function clearForm(oForm) {
     var frm_elements = oForm.elements;
@@ -58,47 +99,22 @@ function submitForm() {
     //
 }
 
-function populateRegion() {
-    alert("populating region!");
-    var region=document.getElementById("region");
-    if (region) {
-        region.value="JAK";
-    }
-}
-
 var nav = document.getElementById("header");
 var menu = document.getElementsByClassName("menuitems");
 var menuButton = document.getElementById("menu");
 
 function navToggle(x) { // x is the element "menu"
-    var i;
+    x.classList.toggle("expanded");
     var numMenuItems=menu.length;
-    if (x.classList.contains('expanded')) {
-        // close:
-        nav.style.height="40px";
-        for (i = 0; i < numMenuItems; i++){
-            menu[i].style.opacity="0.0";
-            menu[i].style.visibility = "hidden";
-        }
+    /* Toggle between hiding and showing the menulist */
+    var menulist = document.getElementById("menulist");
+    if (menulist.style.height){
+      menulist.style.height=null
     } else {
-        // open:
-        nav.style.height=((34*numMenuItems)+20)+"px";
-        for (i = 0; i < numMenuItems; i++){
-            menu[i].style.opacity="1.0";
-            menu[i].style.marginTop="0px";
-            menu[i].style.visibility = "visible";
-        }
+        menulist.style.height = ((34*numMenuItems)+20)+"px";
     }
-    x.classList.toggle('expanded');
     
 }
-
-menuButton.addEventListener("click", function(){
-  var menuIcon = menuButton.children;
-  for (i = 0; i < menuIcon.length; i++){
-    menuIcon[i].classList.toggle("active");
-  }   
-});
 
 window.onload=Init;
 
