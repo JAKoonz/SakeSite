@@ -9,7 +9,7 @@
     //Fetch some data to pre-load the form
     $sakeID = htmlspecialchars($_GET["sakeID"]);
 	$sql="SELECT Entries.*, Prefecture.region
-				FROM  Entries INNER JOIN Prefecture
+				FROM  Entries LEFT JOIN Prefecture
 				ON Entries.prefecture_fk=Prefecture.name
 				WHERE sakeID='" . $sakeID . "'";
 	$result = mysqli_query($link, $sql);

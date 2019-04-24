@@ -95,6 +95,5 @@ view.php:
 --- idea: two white up/down arrows next to column name. clicking one reloads and colors it blue. See https://css-tricks.com/snippets/css/css-triangle/. 
 
 i think the collapsed class is not used
-remove index.php and sidebar.php?
 host on the web so i can access it through my phone?
 
