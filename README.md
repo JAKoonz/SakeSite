@@ -24,6 +24,6 @@ Expand the Navigation menu. (Italicized menu items open external sites in anothe
 
 
 ## Installation
-Install php, the apache2 server, and phpmyadmin (just apache2 server?)
-Download this repo to the C://var/www/html/ directory.
-launch http://localhost/SakeSite/index.php in a web browser
+- Install php, the apache2 server, and phpmyadmin
+- Download this repo to the C://var/www/html/ directory.
+- Launch http://localhost/SakeSite/index.php in a web browser
